@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 IFS=$'\n'
 
 name=binary-search
@@ -18,7 +19,9 @@ do
     error=$(diff "${test}.out" "${name}.out")
     if [[ -n $error ]]; then
         echo "test ${test_name} failed"
-        echo "must be:"
+        echo "input:"
+        cat "${test}.in"
+        echo "output must be:"
         cat "${test}.out"
         echo "got:"
         cat "${name}.out"
