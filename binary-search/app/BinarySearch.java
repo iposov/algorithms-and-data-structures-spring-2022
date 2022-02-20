@@ -42,5 +42,6 @@ public class BinarySearch {
                 return left;
         } while (left < right);
         return -1;
+
     }
 }
