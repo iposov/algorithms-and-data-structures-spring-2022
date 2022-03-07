@@ -2,4 +2,5 @@ Cargo.lock
 target/
 binary-search/5.*
 binary-search-for-the-answer/5.*
+priority-queue/4.*
 
