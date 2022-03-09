@@ -1,0 +1,4 @@
+﻿  program.cpp
+C:\Users\Admin\Desktop\P&AA\MY priority-queue\program\BinaryHeap.h(21,28): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Admin\Desktop\P&AA\MY priority-queue\program\BinaryHeap.h(26,24): warning C4018: <: несоответствие типов со знаком и без знака
+  program.vcxproj -> C:\Users\Admin\Desktop\P&AA\MY priority-queue\program\Debug\program.exe
