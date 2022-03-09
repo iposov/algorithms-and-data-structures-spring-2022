@@ -1,5 +1,5 @@
 [package]
-name = "binary-search"
+name = "binary-search-for-the-answer"
 version = "0.1.0"
 edition = "2018"
 
