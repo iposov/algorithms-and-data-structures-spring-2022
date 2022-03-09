@@ -1,5 +1,6 @@
 import sys
 import subprocess
+from importlib import import_module
 from pathlib import Path
 
 def run_test_case(lab_dir, test, lab_out, test_num):
@@ -19,9 +20,18 @@ def run_test_case(lab_dir, test, lab_out, test_num):
     print('ok')
     return True
 
+def get_test_expected_out_file(lab_dir, test_dir, test_num):
+    dyn_m_path = lab_dir / 'get_out_file_name.py'
+    if dyn_m_path.is_file():
+        m_path = str(dyn_m_path).replace('/', '.').rstrip('.py')
+        out_file_name = import_module(m_path).get_out_file_name(test_num)
+    else:
+        out_file_name = f'{test_num}.out'
+    return test_dir / out_file_name
+
 def validate_test_case_result(lab_dir, test_dir, lab_out, test_num):
     print('\tAsserting...', end=' ');
-    out = test_dir / f'{test_num}.out'
+    out = get_test_expected_out_file(lab_dir, test_dir, test_num);
     tmp_out = lab_out / f'{test_num}.tmp.out'
     res = subprocess.run(['diff', '-u', str(out), str(tmp_out)],
             capture_output=True, text=True)
@@ -86,7 +96,6 @@ def run_lab(lab_dir):
 def main():
     prepare()
 
-    #sorted(Path('./solution').glob("*"))
     base_dir = Path('./solution')
     if len(sys.argv) == 2:
         lab_dirs = [base_dir / sys.argv[1]]
