@@ -1,6 +1,12 @@
 Cargo.lock
 target/
+
+__pycache__/
+
 binary-search/5.*
 binary-search-for-the-answer/5.*
 priority-queue/4.*
+binary-search-tree/5.*
+binary-search-tree/6.*
+binary-search-tree/7.*
 
