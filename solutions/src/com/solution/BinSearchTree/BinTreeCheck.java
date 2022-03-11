@@ -10,9 +10,11 @@ public class BinTreeCheck {
         for(int i = 1; i < 8; i++) {
             var binaryTree = new BinaryTree();
             String file = "binary-search-tree/" + i + ".in";
+            //String checkFile = "binary-search-tree/" + i + ".contains.out";
             String checkFileMin = "binary-search-tree/" + i + ".min-after.out";
 
             var reader = new BufferedReader(new FileReader(file));
+            //var readerCheckContent = new BufferedReader(new FileReader(checkFile));
             var readerCheckMin = new BufferedReader(new FileReader(checkFileMin));
 
             int n = Integer.parseInt(reader.readLine()), value;
