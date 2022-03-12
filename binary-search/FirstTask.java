@@ -13,7 +13,10 @@ public class FirstTask {
         FileInputStream fis = new FileInputStream("./binary-search/4.in");
         PrintStream ps = new PrintStream(new FileOutputStream("./binary-search/program.out"))
     ) {
+      // Для работы с консолью можно закомментировать следующие 2 строчки
       System.setIn(fis);
+      System.setOut(ps);
+
       Scanner sc = new Scanner(System.in);
       int amountOfArrayElements = Integer.parseInt(sc.nextLine());
       String line = sc.nextLine();
@@ -21,7 +24,6 @@ public class FirstTask {
 
       int amountOfNumsToSearch = Integer.parseInt(sc.nextLine());
 
-      System.setOut(ps);
       for (int i = 0; i < amountOfNumsToSearch; i++) {
         int numToSearch = Integer.parseInt(sc.nextLine());
         System.out.println(binarySearch(arr, 0, amountOfArrayElements - 1, numToSearch));
