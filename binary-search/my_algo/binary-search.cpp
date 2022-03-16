@@ -8,7 +8,7 @@ int binary_search(int n, int* arr, int key){
 	int middle = 0;
 
 	while(left < right){
-		middle = (left + right)/2; //против переполнения на больших массивах
+		middle = (left + right)/2; 
 
 		if(key < arr[middle])
 			right = middle;
