@@ -29,7 +29,7 @@ public class BinarySearch {
                             right = middle;
                         else
                             left = middle;
-                    } while (value != initArr[middle] && (left + 1) != right && left != right);
+                    } while (value != initArr[middle] && right - left > 1);
                     if (value == initArr[middle])
                         writer.write(middle + "\n");
                     else if (value == initArr[right])
