@@ -16,14 +16,12 @@ public class PriorityQueue {
     }
 
     public static void main(String[] args) {
-        try {
-            for (int fileId = 1; fileId <= 4; fileId++) {
-                //to read
-                File file = new File("./priority-queue/" + fileId + ".in");
-                Scanner myReader = new Scanner(file);
-                //to write
-                FileWriter writer = new FileWriter("./priority-queue/" + fileId + "_mine.out", false);
-
+        for (int fileId = 1; fileId <= 4; fileId++) {
+            File file = new File("./priority-queue/" + fileId + ".in");
+            try (
+                    Scanner myReader = new Scanner(file);
+                    FileWriter writer = new FileWriter("./priority-queue/" + fileId + "_mine.out", false)
+            ){
                 int n = myReader.nextInt();
                 PriorityQueue priorityQueue = new PriorityQueue();
                 int max;
@@ -37,17 +35,14 @@ public class PriorityQueue {
                         priorityQueue.insert(numberToAdd);
                     }
                 }
-                //closing input
-                myReader.close();
-                //closing output
-                writer.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+
     }
 
     public void siftDown(int i) {

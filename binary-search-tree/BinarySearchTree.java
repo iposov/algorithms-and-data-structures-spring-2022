@@ -8,17 +8,15 @@ import java.util.TreeSet;
 public class BinarySearchTree {
 
     public static void main(String[] args) {
-        try {
-            for (int fileId = 1; fileId <= 7; fileId++) {
-                //to read
-                File file = new File("./binary-search-tree/" + fileId + ".in");
-                Scanner myReader = new Scanner(file);
-                //to write
-                FileWriter writerContains = new FileWriter(
-                        "./binary-search-tree/" + fileId + "_contains_mine.out", false);
-                FileWriter writerMinAfter = new FileWriter(
-                        "./binary-search-tree/" + fileId + "_min-after_mine.out", false);
-
+        for (int fileId = 1; fileId <= 7; fileId++) {
+            File file = new File("./binary-search-tree/" + fileId + ".in");
+            try (
+                    Scanner myReader = new Scanner(file);
+                    FileWriter writerContains = new FileWriter(
+                            "./binary-search-tree/" + fileId + "_contains_mine.out", false);
+                    FileWriter writerMinAfter = new FileWriter(
+                            "./binary-search-tree/" + fileId + "_min-after_mine.out", false)
+            ) {
                 int n = myReader.nextInt();
                 TreeSet<Integer> binarySearchTree = new TreeSet<>();
                 for (int i = 0; i < n; i++) {
@@ -37,17 +35,13 @@ public class BinarySearchTree {
                         binarySearchTree.add(next);
                     }
                 }
-                //closing input
-                myReader.close();
-                //closing output
-                writerContains.close();
-                writerMinAfter.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+
     }
 }

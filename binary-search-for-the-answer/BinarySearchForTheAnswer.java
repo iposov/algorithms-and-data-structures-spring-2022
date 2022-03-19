@@ -6,22 +6,18 @@ import java.util.Scanner;
 
 public class BinarySearchForTheAnswer {
     public static void main(String[] args) {
-        try {
-            for (int fileId = 1; fileId <= 5; fileId++) {
-                //to read
-                File file = new File("./binary-search-for-the-answer/" + fileId + ".in");
-                Scanner myReader = new Scanner(file);
-                //to write
-                FileWriter writer = new FileWriter("./binary-search-for-the-answer/" + fileId + "_mine.out", false);
-
+        for (int fileId = 1; fileId <= 5; fileId++) {
+            File file = new File("./binary-search-for-the-answer/" + fileId + ".in");
+            try (
+                    Scanner myReader = new Scanner(file);
+                    FileWriter writer = new FileWriter("./binary-search-for-the-answer/" + fileId + "_mine.out", false)
+            ) {
                 int n = myReader.nextInt();
                 int k = myReader.nextInt();
                 Integer[] coords = new Integer[n];
                 for (int i = 0; i < n; i++) {
                     coords[i] = myReader.nextInt();
                 }
-                //closing input
-                myReader.close();
                 int left = 0;//мин граница длины отрезка
                 int right = coords[n - 1];//макс граница длины отрезка (координата последней точки)
                 int middle;
@@ -35,14 +31,12 @@ public class BinarySearchForTheAnswer {
                         left = middle; //двигаем мин границу длины к данной длине
                 }
                 writer.write(left + "\n");
-                //closing output
-                writer.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

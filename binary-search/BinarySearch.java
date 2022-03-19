@@ -3,14 +3,12 @@ import java.util.Scanner;
 
 public class BinarySearch {
     public static void main(String[] args) {
-        try {
-            for (int fileId = 1; fileId <= 5; fileId++) {
-                //to read
-                File file = new File("./binary-search/" + fileId + ".in");
-                Scanner myReader = new Scanner(file);
-                //to write
-                FileWriter writer = new FileWriter("./binary-search/" + fileId + "_mine.out", false);
-
+        for (int fileId = 1; fileId <= 5; fileId++) {
+            File file = new File("./binary-search/" + fileId + ".in");
+            try (
+                    Scanner myReader = new Scanner(file);
+                    FileWriter writer = new FileWriter("./binary-search/" + fileId + "_mine.out", false)
+            ) {
                 int n = myReader.nextInt();
                 Integer[] initArr = new Integer[n];
                 for (int i = 0; i < n; i++) {
@@ -39,16 +37,13 @@ public class BinarySearch {
                     else
                         writer.write(-1 + "\n");
                 }
-                //closing input
-                myReader.close();
-                //closing output
-                writer.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+
     }
 }
