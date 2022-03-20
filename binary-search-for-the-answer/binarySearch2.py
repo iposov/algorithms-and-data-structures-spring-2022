@@ -1,5 +1,6 @@
 #!/bin/python
 
+
 def check(coordList,x,k):
     objs = 1
     lastObj = coordList[0]
