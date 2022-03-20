@@ -18,14 +18,14 @@ int main() {
 
         it = tree.upper_bound(input);
         if (tree.find(input) == tree.end()) {
-            if(*it == input)
+            if(it == tree.end())
                 cout << "- -" << endl;
             else
                 cout << "- " << *it << endl;
 
             tree.insert(input);
         }else{
-            if(*it == input)
+            if(it == tree.end())
                 cout << "+ -" << endl;
             else
                 cout << "+ " << *it << endl;
