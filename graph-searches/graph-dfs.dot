@@ -1,0 +1,32 @@
+digraph g {
+  a [label="a\n1 13"];
+  b [label="b\n2 6"];
+  c [label="c\n3 5"];
+  d [label="d\n4 4"];
+  e [label="e\n5 3"];
+  f [label="f\n6 2"];
+  g [label="g\n7 1"];
+  h [label="h\n8 12"];
+  i [label="i\n9 11"];
+  j [label="j\n11 9"];
+  k [label="k\n13 7"];
+  l [label="l\n10 10"];
+  m [label="m\n12 8"];
+  a -> b [style=bold];
+  b -> c [style=bold];
+  c -> d [style=bold];
+  d -> e [style=bold];
+  f -> g [style=bold];
+  e -> f [style=bold];
+  g -> d [style=dashed, color=red];
+  f -> d [style=dashed, color=red];
+  d -> b [style=dashed, color=red];
+  a -> h [style=bold];
+  h -> i [style=bold];
+  i -> l [style=bold];
+  l -> j [style=bold];
+  l -> m [style=bold];
+  m -> k [style=bold];
+  k -> h [style=dashed, color=red];
+  j -> h [style=dashed, color=red];
+}

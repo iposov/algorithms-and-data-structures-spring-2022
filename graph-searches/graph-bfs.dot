@@ -1,0 +1,32 @@
+graph g {
+  a [label="a\n1"];
+  b [label="b\n2"];
+  c [label="c\n4"];
+  d [label="d\n5"];
+  e [label="e\n9"];
+  f [label="f\n10"];
+  g [label="g\n11"];
+  h [label="h\n3"];
+  i [label="i\n6"];
+  j [label="j\n7"];
+  k [label="k\n8"];
+  l [label="l\n12"];
+  m [label="m\n13"];
+  a -- b;
+  b -- c;
+  b -- d;
+  c -- d;
+  d -- e;
+  d -- f;
+  e -- f;
+  d -- g;
+  g -- f;
+  a -- h;
+  h -- i;
+  h -- j;
+  h -- k;
+  i -- l;
+  j -- l;
+  l -- m;
+  k -- m;
+}
