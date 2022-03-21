@@ -24,15 +24,17 @@ class UFF:
         x = self.find(x)
         y = self.find(y)
         if x == y:
-            return
+            return x
 
         if self.r[x] > self.r[y]:
             self.a[y] = x
+            return x
         elif self.r[x] < self.r[y]:
             self.a[x] = y
         else:
             self.a[x] = y
             self.r[x] += 1
+        return y
 
 
 if __name__ == '__main__':
