@@ -7,25 +7,24 @@ int main()
 	int N, x, j;
 
 	std::cin >> N;
-
 	for (int i = 0; i < N; i++)
 	{
 		std::cin >> x;
-		if (!tree.count(x))
+		auto it = tree.find(x);
+		if (it == tree.end())
 		{
 			std::cout << "-";
-			tree.insert(x);
+			it = tree.insert(x).first;
 		}
 		else
 		{
 			std::cout << "+";
 		}
 
-		auto it = tree.find(x); 
-		++it;
-		if (it != tree.end())
+		auto nx = std::next(it);
+		if (nx != tree.end())
 		{
-			std::cout << " " << *it << std::endl;
+			std::cout << " " << *nx << std::endl;
 		}
 		else
 		{
