@@ -20,6 +20,19 @@ class UFF:
             x = y
         return result
 
+    # def find(self, x):
+    #     a = self.a
+    #     if a[x] == x:
+    #         return x
+    #     a[x] = self.find(a[x])
+    #     return a[x]
+
+    # def find(self, x):
+    #     a = self.a
+    #     while a[x] != x:
+    #         x, a[x] = a[x], a[a[x]]
+    #     return x
+
     def union(self, x, y):
         x = self.find(x)
         y = self.find(y)

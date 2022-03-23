@@ -13,7 +13,7 @@ with TestsSuite() as testSuite:
             lines = []
 
             print("working on test case", m, 'by', n, 'density', density)
-
+            print(m, n, file=statement)
             for i in range(m):
                 line = ''.join(choices('#.', weights=[density, 100 - density], k=n))
                 print(line, file=statement)
