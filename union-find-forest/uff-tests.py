@@ -5,11 +5,11 @@ from uff import UFF
 
 seed(123)
 
-os.makedirs("tests", exist_ok=True)
+os.makedirs("uff", exist_ok=True)
 with ZipFile('uff-tests.zip', mode="w", compression=ZIP_DEFLATED, compresslevel=9) as tests_zip:
     for deg in 2, 3, 4, 7, 10, 15, 17, 18, 19, 20:
-        infile = f"tests/2to{deg}.in"
-        outfile = f"tests/2to{deg}.out"
+        infile = f"uff/2to{deg}.in"
+        outfile = f"uff/2to{deg}.out"
         with open(infile, "w") as finput, open(outfile, "w") as foutput:
             finput.write(f"{2 ** deg} {2 ** deg}\n")
             n = 2 ** deg
@@ -37,8 +37,8 @@ with ZipFile('uff-tests.zip', mode="w", compression=ZIP_DEFLATED, compresslevel=
 
 
     def generate(f, n, m):
-        infile = f"tests/{f}.in"
-        outfile = f"tests/{f}.out"
+        infile = f"uff/{f}.in"
+        outfile = f"uff/{f}.out"
         with open(infile, "w") as finput, open(outfile, "w") as foutput:
             finput.write(f"{n} {m}\n")
             uff = UFF(n)

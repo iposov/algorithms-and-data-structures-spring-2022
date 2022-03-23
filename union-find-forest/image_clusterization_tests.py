@@ -2,7 +2,7 @@ from testslib.TestsSuite import TestsSuite
 from image_clusterization import count_islands_quadratic_memory
 from random import choices
 
-with TestsSuite() as testSuite:
+with TestsSuite(tests_folder='image-clusterization') as testSuite:
     # random tests
     for m, n in (4, 4), (20, 20), (100, 200), (3000, 4000):
         for density in 10, 50, 90:
