@@ -1,3 +1,4 @@
+
 def test(N,  k, Arr, middle):
     count = 1
     first = Arr[0]
@@ -6,6 +7,7 @@ def test(N,  k, Arr, middle):
             count += 1
             first = Arr[i]
     return count <= k
+
 
 def way(Arr):
     left = 0
@@ -18,6 +20,7 @@ def way(Arr):
             left = middle + 1
     return right
 
+
 if __name__ == '__main__':
     print("Введите количество точек")
     N = int(input())
@@ -28,3 +31,4 @@ if __name__ == '__main__':
         print("Введите число")
         Arr.append(int(input()))
     print(way(Arr))
+
