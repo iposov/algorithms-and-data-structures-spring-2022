@@ -16,12 +16,17 @@ def binary_search(x_i, A):
     return -1
 
 
-N = int(input())
-A = list(map(int, input().split()))
-K = int(input())
-for i in range(K):
-    x_i = int(input())
-    print(binary_search(x_i, A))
-    print(binary_search(x_i, A))
+def main():
+    N = int(input())
+    A = list(map(int, input().split()))
+    K = int(input())
+    for i in range(K):
+        x_i = int(input())
+        print(binary_search(x_i, A))
+        print(binary_search(x_i, A))
+
+
+if __name__ == "__main__":
+    main()
 
 
