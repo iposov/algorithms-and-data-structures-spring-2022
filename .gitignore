@@ -1,4 +1,8 @@
+.vscode
 .idea
 *.iml
 out
 venv
+
+binary-search/5.out
+binary-search/5.in
