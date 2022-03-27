@@ -55,7 +55,7 @@ def insert(x, z):  # x — корень поддерева, z — вставля
             return '+'
 
 
-def delete(t, v):  # t — дерево, v — удаляемый элемент
+def delete(t, v):
     p = v.parent
     if v.left is None and v.right is None:
         if p.left == v:
@@ -89,7 +89,7 @@ def delete(t, v):  # t — дерево, v — удаляемый элемент
                 successor.right.parent = successor.parent
 
 
-contains = False
+contains = True
 if contains:
     N = int(input())
     root = Node(int(input()))
