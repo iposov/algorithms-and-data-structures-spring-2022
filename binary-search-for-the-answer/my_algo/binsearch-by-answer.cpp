@@ -5,19 +5,18 @@ using namespace std;
 int *arr;
 int N, k;
 
-//можно ли расставить k коров, если между ними расстояние X
 int check_shuffle(int X){
-    int total_cows = 0;
-    int current_cow = arr[0];
+    int total_points = 0;
+    int current_point = arr[0];
 
     for(int i = 0; i < N; i++){
-        if(arr[i] - current_cow >= X){
-            total_cows+=1;
-            current_cow = arr[i];
+        if(arr[i] - current_point >= X){
+            total_points+=1;
+            current_point = arr[i];
         }
     }
 
-    return total_cows >= k;
+    return total_points >= k;
 }
 
 int binary_search_by_answer(){
