@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int binSearchAnswer(long* Arr, int N, int K) {;
+int binSearchAnswer(const long* Arr, int N, int K) {
     int result, left, right, middle;
     left = 0;
     right = ((N > K) ? int((Arr[N-1] - Arr[0])/K) : 0);
@@ -15,7 +15,7 @@ int binSearchAnswer(long* Arr, int N, int K) {;
             middle = (left + right)/2;
             int j = 0;
             for (int i = 0; (i < K) && (j < N); i++) {
-                int passLeft = Arr[j];
+                long passLeft = Arr[j];
                 while ((Arr[j] <= passLeft + middle) && (j < N)) {
                     j++;
                 }
