@@ -123,7 +123,7 @@ int main()
     for (i = 0; i < m + 2; i++) {
         delete[] matrix[i];
     }
-    delete matrix;
+    delete[] matrix;
     delete dsf;
     return 0;
 }
