@@ -8,7 +8,7 @@ int binSearch(long number, long* Arr, int size) {
     left = 0;
     right = size - 1;
     while (true) {
-        if (left - right <= 1) {
+        if (right - left <= 1) {
             if (number == Arr[left]) {
                 result = left;
             }
