@@ -13,14 +13,14 @@ public class UnionFindForest {
     }
 
     public static void main(String[] args) {
-        Iterator<String> iterator = new Scanner(System.in).tokens().iterator();
+        var iterator = new Scanner(System.in).tokens().iterator();
 
         int n = Integer.parseInt(iterator.next()),
             k = Integer.parseInt(iterator.next()),
             first,
             second;
 
-        UnionFindForest unionFindForest = new UnionFindForest(n);
+        var unionFindForest = new UnionFindForest(n);
 
         for (int i = 0; i < k; i++) {
             first = Integer.parseInt(iterator.next());
@@ -37,11 +37,11 @@ public class UnionFindForest {
             return "YES";
 
         if (ranks[firstRoot] > ranks[secondRoot]) {
-            ranks[firstRoot]++;
+            ranks[secondRoot]++;
             unionFindForestArray[secondRoot] = firstRoot;
         }
         else {
-            ranks[ secondRoot]++;
+            ranks[firstRoot]++;
             unionFindForestArray[firstRoot] = secondRoot;
         }
 
