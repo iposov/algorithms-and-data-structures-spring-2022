@@ -35,11 +35,6 @@ int BinarySearch(const std::vector<int>& array, int element)
     while (right - left > 1)
     {
         auto middle = (left + right) / 2;
-        
-        if (array[middle] == element)
-        {
-            return middle;
-        }
 
         if (array[middle] > element)
         {
