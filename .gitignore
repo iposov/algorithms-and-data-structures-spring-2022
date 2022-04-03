@@ -2,3 +2,6 @@
 *.iml
 out
 venv
+*.in
+*.out
+__pycache__
