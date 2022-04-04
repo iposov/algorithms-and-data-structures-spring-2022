@@ -1,34 +1,34 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class IC {
 
     private String[][] arrayGrid;
-    private int[][] directions = {{0, -1},
-                                  {-1,0},
-                                  {0,1},
-                                  {1,0}};
+    private int islands;
 
-    private List<ArrayList<String>> islands;
-    private ArrayList<String> coordinates;
 
-    private void depthFirstSearch(int x0, int y0, int i, int j) {
-        if (i >= 0 && i < arrayGrid.length &&
-                j >= 0 && j < arrayGrid[0].length && !arrayGrid[i][j].equals(".")
-                && !arrayGrid[i][j].equals("X")) {
+    private void depthFirstSearch(int i, int j) {
+        int k=i, m=j;
+        Stack<String> stack = new Stack();
+        stack.push((i)+"-"+(j));
+        while (!stack.isEmpty()) {
+            String coordinates[] = stack.pop().split("-");
+            i = Integer.parseInt(coordinates[0]);
+            j = Integer.parseInt(coordinates[1]);
             arrayGrid[i][j]="X";
-
-            coordinates.add((i-x0)+"-"+(j-y0));
-
-            for (int k=0; k < directions.length; k++) {
-                depthFirstSearch(x0, y0, i + directions[k][0], j + directions[k][1]);
+            if (i+1 < arrayGrid.length && arrayGrid[i+1][j].equals("#")) {
+                stack.push((i+1)+"-"+(j));
+            }
+            if (j+1 < arrayGrid[0].length && arrayGrid[i][j+1].equals("#")) {
+                stack.push((i)+"-"+(j+1));
+            }
+            if (i-1 >= 0 && arrayGrid[i-1][j].equals("#")) {
+                stack.push((i-1)+"-"+(j));
+            }
+            if (j-1 >= 0 && arrayGrid[i][j-1].equals("#")) {
+                stack.push((i)+"-"+(j-1));
             }
         }
-
-
     }
 
     private int countIslands() {
@@ -36,17 +36,16 @@ public class IC {
             return 0;
         }
 
-        islands = new ArrayList<>();
+        islands = 0;
         for (int i = 0; i < arrayGrid.length; i++) {
             for (int j = 0; j < arrayGrid[0].length; j++) {
                 if(arrayGrid[i][j].equals("#")) {
-                    coordinates = new ArrayList<>();
-                    depthFirstSearch(i,j,i,j);
-                    islands.add(coordinates);
+                    depthFirstSearch(i,j);
+                    islands++;
                 }
             }
         }
-        return islands.size();
+        return islands;
     }
 
 
