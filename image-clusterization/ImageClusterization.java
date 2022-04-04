@@ -3,19 +3,19 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Stack;
 
 
 public class ImageClusterization {
 
     private final char[][] grid;
-    private final int[][] directions = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
 
     ImageClusterization(int m, int n) {
         grid = new char[m][n];
     }
 
     public static void main(String[] args) {
-        for (int fileId = 1; fileId <= 8; fileId++) {
+        for (int fileId = 1; fileId <= 12; fileId++) {
             File file = new File("./image-clusterization/" + fileId + ".in");
             try (
                     Scanner myReader = new Scanner(file);
@@ -40,12 +40,21 @@ public class ImageClusterization {
     }
 
     private void DFS(int i, int j) {
-        if (i >= 0 && i < grid.length && j >= 0 && j < grid[0].length //если координата в пределах поля
-                && grid[i][j] == '#') {//и если на клетке символ #
-            grid[i][j] = 'X';//помечаем его
-            for (int[] direction : directions) { //поиск по соседним клеткам
-                DFS(i + direction[0], j + direction[1]);
-            }
+        Stack<int[]> stack = new Stack<>();
+        stack.push(new int[]{i, j});
+        while (!stack.isEmpty()) {
+            int[] coords = stack.pop();
+            i = coords[0];
+            j = coords[1];
+            grid[i][j] = 'X';//помечаем клетку пройденной
+            if (i + 1 < grid.length && grid[i + 1][j] == '#')
+                stack.push(new int[]{i + 1, j});
+            if (j + 1 < grid[0].length && grid[i][j + 1] == '#')
+                stack.push(new int[]{i, j + 1});
+            if (i - 1 >= 0 && grid[i - 1][j] == '#')
+                stack.push(new int[]{i - 1, j});
+            if (j - 1 >= 0 && grid[i][j - 1] == '#')
+                stack.push(new int[]{i, j - 1});
         }
     }
 
