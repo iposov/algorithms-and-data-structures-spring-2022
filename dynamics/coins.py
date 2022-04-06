@@ -1,4 +1,5 @@
-import testslib
+from testslib.TestsSuite import TestsSuite
+import random
 
 
 def collect(price, system):
@@ -27,7 +28,6 @@ def collect_compress(price, system):
                 found_coin = True
                 break
         nums[i_] = found_coin
-
 
     return nums[price % mod]
 
@@ -59,9 +59,6 @@ def collect_optimal(price, system):
         else:
             nums[i_] = False
 
-        if i % 1000000 == 0:
-            print(i, nums)
-
     result = nums[price % mod]
     if not result:
         return False
@@ -86,6 +83,57 @@ def collect_optimal(price, system):
 # print(collect_optimal(10, [2, 3, 7]))
 # print(collect_optimal(1, [2, 3, 7]))
 # print(collect_optimal(6, [2, 5, 7]))
-print(collect_optimal(100, [11, 17, 27]))
+# print(collect_optimal(100, [11, 17, 27]))
+#
+# print(collect_optimal(1_000_000_000, [11, 17, 27]))
 
-print(collect_optimal(1_000_000_000, [11, 17, 27]))
+random.seed(42)
+
+with TestsSuite('coins-system') as ts:
+    for i in range(7, 20):
+        n = random.randint(2 ** i, 2 ** (i + 1))
+        coins_probably_possible = random.sample(range(2, 50), i - 4)
+        coins_probably_impossible = random.sample(range(n // 7, n // 3), i - 4)
+        for coins in coins_probably_possible, coins_probably_impossible:
+
+            tc = ts.get()
+            statement = tc.statement()
+            print(i, file=statement)
+            print(*coins, sep='\n', file=statement)
+            print(n, file=statement)
+
+            result = collect_optimal(n, coins)
+
+            ans1 = tc.answer('possible')
+            ans2 = tc.answer('how-many')
+            ans3 = tc.answer('full-answer')
+
+            if result:
+                print('YES', file=ans1)
+                print(sum(result), file=ans2)
+                print(sum(result), file=ans3)
+                print(*result, sep='\n', file=ans3)
+            else:
+                print('NO', file=ans1)
+                print(-1, file=ans2)
+                print(-1, file=ans3)
+
+
+    tc = ts.get()
+    st = tc.statement()
+    ans1 = tc.answer('possible')
+    ans2 = tc.answer('how-many')
+    ans3 = tc.answer('full-answer')
+
+    print('''3
+11
+17
+27
+1000000000''', file=st)
+
+    print('YES', file=ans1)
+    print(37037038, file=ans2)
+    print(37037038, file=ans3)
+    print(1, file=ans3)
+    print(1, file=ans3)
+    print(37037036, file=ans3)
