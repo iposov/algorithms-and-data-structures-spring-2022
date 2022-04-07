@@ -1,28 +1,16 @@
 #include <iostream>
 
-int binary_search(int* array, int length, int find) {
-    int left = 0;
-    int right = length - 1;
-    int middle;
-    int value;
-
-    while (left < right - 1) {
-        middle = (left + right) / 2;
-        value = array[middle];
-        if (value > find) {
-            right = middle;
-        } else if (value < find) {
-            left = middle;
-        } else {
-            return middle;
-        }
-    }
-    if (array[left] == find) {
-        return left;
-    } else if (array[right] == find) {
-        return right;
-    }
-    return -1;
+int binary_search(int* array, int left, int right, int find) {
+    int middle = (left + right) / 2;
+    
+    if (array[middle] > find && middle > left)
+        return binary_search(array, left, middle - 1, find);
+    else if (array[middle] < find && middle < right)
+        return binary_search(array, middle + 1, right, find);
+    else if (array[middle] == find)
+        return middle;
+    else
+        return -1;
 }
 
 int main() {
@@ -31,13 +19,12 @@ int main() {
     int find;
     std::cin >> length;
     int array[length];
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < length; i++)
         std::cin >> array[i];
-    }
     std::cin >> amount;
     for (int i = 0; i < amount; i++) {
         std::cin >> find;
-        std::cout << binary_search(array, length, find) << "\n";
+        std::cout << binary_search(array, 0, length, find) << "\n";
     }
     return 0;
 }

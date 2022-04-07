@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 IFS=$'\n'
 
-name=binary-search
+name=binary-search-for-the-answer
 files=main.cpp
 cc=g++
 
