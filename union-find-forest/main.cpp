@@ -16,14 +16,16 @@ struct Node {
     }
 };
 
-bool join(Node*& x, Node* y) {
-    if (x->head == y->head) {
+bool join(Node* x, Node* y) {
+    x = x->head;
+    y = y->head;
+    if (x == y) {
         return false;
     }
     x->tail->next = y;
     x->tail = y->tail;
     while (y != nullptr) {
-        y->head = x->head;
+        y->head = x;
         y = y->next;
     }
     return true;
