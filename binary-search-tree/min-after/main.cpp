@@ -75,7 +75,7 @@ Node* next(Node* node) {
         return min(node->right);
     }
     Node * p = node->parent;
-    while (p != nullptr and node == p->right) {
+    while (p != nullptr && node == p->right) {
         node = p;
         p = p->parent;
     }
