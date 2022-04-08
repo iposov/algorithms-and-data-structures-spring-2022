@@ -8,7 +8,6 @@ def check(coordList,x,k):
         if(coord-lastObj>x):
             objs = objs+1
             lastObj = coord
-    # Коровы кончились раньше чем стойла, то решение >=x
     return k>=objs
 
 def calc(coordList,k):
