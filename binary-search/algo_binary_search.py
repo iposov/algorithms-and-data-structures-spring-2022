@@ -20,7 +20,7 @@ def main():
     for _ in range(K):
         element = int(input())
         res = binary_search(array,element,0,N-1)    
-        print
+        print(res)
 
 if __name__ == "__main__":
     main()
