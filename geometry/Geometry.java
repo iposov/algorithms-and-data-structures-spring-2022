@@ -7,11 +7,11 @@ public class Geometry {
 
     public BigDecimal countArea(int n) {
         float area = 0F;
-        int j = n - 1;
-        for (int i = 0; i < n; i++) {
-            area += (X[j]+X[i])*(Y[j]-Y[i]);
-            j=i;
+
+        for (int i = 0; i < n-1; i++) {
+            area += (X[i]-X[i+1])*(Y[i]+Y[i+1]);
         }
+        area += (X[n-1]-X[0])*(Y[n-1]+Y[0]);
 
         area = Math.abs(area/2.0F);
 
