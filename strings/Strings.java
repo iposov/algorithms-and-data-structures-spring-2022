@@ -43,7 +43,7 @@ public class Strings {
         if (answer.size() == 0) {
             System.out.print(-1);
         } else {
-            System.out.print(answer.get(answer.size()-1)-substring.length()+1);
+            System.out.print(answer.get(0)-substring.length()+1);
         }
         System.exit(0);
     }
