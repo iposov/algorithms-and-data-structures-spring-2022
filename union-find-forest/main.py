@@ -28,3 +28,4 @@ if __name__ == "__main__":
     for i in range(k):
         x, y = map(int, input().split())
         union(x, y, p, r)
+ 
