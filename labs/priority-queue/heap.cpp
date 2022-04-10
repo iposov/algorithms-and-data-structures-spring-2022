@@ -1,5 +1,4 @@
 #include "heap.h"
-#include <iostream>
 
 Heap::Heap() {
    size = 0;
@@ -19,6 +18,7 @@ void Heap::insert(int value) {
         i++;
     }
     size++;
+    delete[] array;
     array = new_array;
 }
 
@@ -26,4 +26,8 @@ int Heap::get() {
     int value = array[size - 1];
     size--;
     return value;
+}
+
+Heap::~Heap() {
+    delete[] array;
 }

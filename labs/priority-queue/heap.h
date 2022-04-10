@@ -9,6 +9,7 @@ class Heap {
     Heap();
     void insert(int value);
     int get();
+    ~Heap();
 };
 
 #endif
