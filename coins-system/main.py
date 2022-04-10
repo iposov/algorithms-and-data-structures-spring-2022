@@ -1,4 +1,4 @@
-def func(N, k):
+def func(N, k, a):
     f = []
     #По нему "восстановим" какие монеты потребуются
     res = []
@@ -41,4 +41,4 @@ if __name__ == "__main__":
     for i in range(k):
         a.append(int(input()))
     N = int(input())
-    func(N, k)
+    func(N, k, a)
