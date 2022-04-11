@@ -98,7 +98,7 @@ with TestsSuite('coins-system') as ts:
 
             tc = ts.get()
             statement = tc.statement()
-            print(i, file=statement)
+            print(len(coins), file=statement)
             print(*coins, sep='\n', file=statement)
             print(n, file=statement)
 
