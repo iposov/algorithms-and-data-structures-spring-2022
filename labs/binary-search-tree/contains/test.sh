@@ -4,7 +4,7 @@ name=binary-search-tree
 files="main.cpp ../tree/tree_node.cpp"
 cc=g++
 
-$cc $files -o $name
+$cc $files -Ofast -o $name
 
 tests=$(find ./../../../$name/ -name *.in)
 tests=$(echo $tests | tr " " "\n" | sort)

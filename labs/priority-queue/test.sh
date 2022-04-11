@@ -4,7 +4,7 @@ name=priority-queue
 files="main.cpp heap.cpp"
 cc=g++
 
-$cc $files -o $name
+$cc $files -Ofast -o $name
 
 tests=$(find ./../../$name/ -name *.in)
 tests=$(echo $tests | tr " " "\n" | sort)

@@ -5,6 +5,7 @@ Tree_node::Tree_node() {
     right = 0;
     parent = 0;
     id = -1;
+    is_parent = 1;
 }
 
 Tree_node::Tree_node(Tree_node *parent) {
@@ -12,10 +13,15 @@ Tree_node::Tree_node(Tree_node *parent) {
     this->right = 0;
     this->parent = parent;
     this->id = -1;
+    this->is_parent = 0;
 }
 
 int Tree_node::get_id() {
     return this->id;
+}
+
+void Tree_node::set_parent(Tree_node* parent) {
+    this->parent = parent;
 }
 
 Tree_node* Tree_node::get_parent() {
@@ -40,6 +46,26 @@ Tree_node* Tree_node::insert(int id) {
     }
 }
 
+Tree_node* Tree_node::insert(Tree_node* tree) {
+    if (this->id == tree->id)
+        return 0;
+    if (this->id < tree->id) {
+        if (!right) {
+            right = tree;
+            right->set_parent(this);
+            return right;
+        }
+        return right->insert(tree);
+    } else {
+         if (!left) {
+            left = tree;
+            left->set_parent(this);
+            return left;
+         }
+        return left->insert(tree);
+    }
+}
+
 Tree_node* Tree_node::get(int id) {
     if (this->id == id)
         return this;
@@ -56,6 +82,12 @@ Tree_node* Tree_node::min() {
     return this;
 }
 
+Tree_node* Tree_node::top() {
+    if (parent)
+        return parent->top();
+    return this;
+}
+
 Tree_node* Tree_node::next() {
     Tree_node *current;
     if (this->right)
@@ -67,8 +99,8 @@ Tree_node* Tree_node::next() {
 }
 
 Tree_node::~Tree_node() {
-    if (left)
+    if (left && !left->is_parent)
         delete left;
-    if (right)
+    if (right && !right->is_parent)
         delete right;
 }
