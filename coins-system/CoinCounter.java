@@ -11,10 +11,6 @@ public class CoinCounter {
     boolean[] result = new boolean[sum + 1];
     result[0] = true;
 
-    if (sum == 0) {
-      return true;
-    }
-
     for (int i = 1; i <= sum; i++) {
       for (int coin : coins) {
         if (i - coin >= 0) {
