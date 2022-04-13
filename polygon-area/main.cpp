@@ -24,5 +24,7 @@ int main() {
         coords.emplace_back(temp_x,temp_y);
     }
 
-    std::cout << polygonArea(coords, count);
+    printf("%.1f",polygonArea(coords, count));
+
+    return 0;
 }
