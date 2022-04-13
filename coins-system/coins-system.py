@@ -50,7 +50,7 @@ def print_result(list_of_coin_types, amount_of_coins_by_type):
         print(-1)
 
 
-coin_types_count = int(input()) - 4
+coin_types_count = int(input())
 coin_types = []
 for i in range(coin_types_count):
     coin_types.append(int(input()))
