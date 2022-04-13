@@ -35,7 +35,7 @@ def make_names_and_run(i):
 
 
 if mt:
-    Parallel(n_jobs=n_jobs)(delayed(make_names_and_run)(i) for i in range(start_test, tests_to_run))
+    Parallel(n_jobs=n_jobs)(delayed(make_names_and_run)(i) for i in range(start_test, tests_to_run + 1))
 else:
-    for i in range(start_test, tests_to_run):
+    for i in range(start_test, tests_to_run + 1):
         make_names_and_run(i)
