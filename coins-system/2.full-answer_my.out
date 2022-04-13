@@ -1,4 +1,4 @@
-Traceback (most recent call last):
-  File "C:\Program Files\JetBrains\PyCharm 2021.3.3\plugins\python\helpers\pydev\pydevd.py", line 2164, in main
-    globals = debugger.run(setup['file'], None, None, is_module)
-KeyboardInterrupt
+6
+0
+6
+0
