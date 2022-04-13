@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "E:/Vlad/_Work/16. œ¿Ë—/algorithms-and-data-structures-spring-2022/polygon-area/polygon_area.py", line 19, in <module>
+    print(area(polygon))
+  File "E:/Vlad/_Work/16. œ¿Ë—/algorithms-and-data-structures-spring-2022/polygon-area/polygon_area.py", line 2, in area
+    segments_list = list(make_segments(p))
+  File "E:/Vlad/_Work/16. œ¿Ë—/algorithms-and-data-structures-spring-2022/polygon-area/polygon_area.py", line 10, in make_segments
+    return zip(p, p[1:] + [p[0]])
+KeyboardInterrupt
