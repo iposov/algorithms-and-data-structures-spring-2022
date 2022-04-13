@@ -17,4 +17,4 @@ for i in range(vertex_count):
     a = input()
     polygon.append(tuple(int(el) for el in a.split(' ')))
 
-print(area(polygon))
+print(round(area(polygon), 1))
