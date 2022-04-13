@@ -16,7 +16,9 @@
 4 7
 1 -0.5
 ```
+
 Результат Wolfram Alpha:
+
 ![test1.png](images/test1.png)
 
 Тест 2:
@@ -28,7 +30,9 @@
 0 0
 -4 -2.5
 ```
+
 Результат Wolfram Alpha:
+
 ![test2.png](images/test2.png)
 
 Тест 3
@@ -42,6 +46,8 @@
 -19 -31
 -29 -50
 ```
+
+Результат Wolfram Alpha:
 
 ![test3.png](images/test3.png)
 
