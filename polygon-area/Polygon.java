@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Polygon {
 
@@ -15,7 +17,15 @@ public class Polygon {
     }
     result = 0.5 * Math.abs(result);
 
-    return result;
+    return round(result, 1);
+  }
+
+  private double round(double value, int places) {
+    if (places < 0) throw new IllegalArgumentException();
+
+    BigDecimal bd = BigDecimal.valueOf(value);
+    bd = bd.setScale(places, RoundingMode.HALF_UP);
+    return bd.doubleValue();
   }
 
 }
