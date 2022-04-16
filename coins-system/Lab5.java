@@ -51,7 +51,6 @@ public class Lab5 {
     private static long filesCompare(Path path1, Path path2) throws IOException {
         try (BufferedReader bf1 = Files.newBufferedReader(path1);
              BufferedReader bf2 = Files.newBufferedReader(path2)) {
-
             long lineNumber = 1;
             String line1 = "", line2 = "";
             while ((line1 = bf1.readLine()) != null) {
