@@ -36,6 +36,7 @@ public class Lab4 {
         while (p[next] != next) {
             next = p[next];
         }
+        
         while (p[x] != x) {
             next = p[x];
             p[x] = p[next];
