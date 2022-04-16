@@ -17,7 +17,7 @@ public class Lab3 {
         check();
         System.out.println("Совпадает?" + " " + ((filesCompare(Paths.get("1.contains.out"),Paths.get("out.txt")) == -1) ? "Да":"Нет"));
         /*search();
-        System.out.println("Совпадает?" + " " + ((filesCompare(Paths.get("C:\\Algorithms\\algorithms-and-data-structures-spring-2022\\binary-search-tree\\1.min-after.out"),Paths.get("out.txt")) == -1) ? "Да":"Нет"));*/
+        System.out.println("Совпадает?" + " " + ((filesCompare(Paths.get("1.min-after.out"),Paths.get("out.txt")) == -1) ? "Да":"Нет"));*/
     }
 
     private static void check() {
