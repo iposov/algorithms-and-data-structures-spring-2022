@@ -21,3 +21,4 @@ if __name__ == "__main__":
     s1 = 'kkkkqqkk'
     s2 = 'kqkkkkkk'
     print(levensteinInstruction(s1, s2, 1))
+    #Результатом работы программы будет 3
