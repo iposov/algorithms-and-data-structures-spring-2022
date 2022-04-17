@@ -1,6 +1,7 @@
 #include "iostream"
 using namespace std;
-#define INFTY 10000000
+
+#define INFTY 100000000
 
 int main(){
 	int N, k;
@@ -13,7 +14,6 @@ int main(){
 		cin >> arr[i];
 
 	cin >> N;
-
 	int *f,*res,*coins;
 	f = new int[N+1];
 	res = new int[N+1];
@@ -39,16 +39,19 @@ int main(){
 		else
 			f[i] = -500;
 	}
-
+	int total = 0;
 	if(res[N] != -1){
 		int i = N;
         while(i > 0){
-            for (int j; j < k; j++){
-                if(arr[j] == i - res[i])
+            for (int j = 0; j < k; j++){
+                if(arr[j] == i - res[i]){
+                	total+=1;
                     coins[j] += 1;
+                }
             }
             i = res[i];
         }
+        cout << total << endl;
         for(int i = 0; i < k; i++)
             cout << coins[i] << endl;
 	}

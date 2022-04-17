@@ -13,7 +13,7 @@ int main(int argc, char **argv){
 
        
         for(int i = 0; i < k; i++){
-            sprintf(cmd, "./%s <../%d.full-answer.in >../results/my_%d.out", name, (i+1), (i+1));
+            sprintf(cmd, "./%s <../%d.in >../results/my_%d.out", name, (i+1), (i+1));
             //cout << cmd << endl;  
             system(cmd);
             cout << "Test " << i+1 << " out file generated" << endl;
