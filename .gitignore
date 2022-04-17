@@ -1,4 +1,13 @@
-.idea
-*.iml
+# tests and other non-repo files
+*.in
+*.out
+*.zip
+-*
+
+# binaries
 out
 venv
+
+# project configuration
+.idea
+*.iml
